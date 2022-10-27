@@ -1,10 +1,13 @@
 import React, { CSSProperties } from "react";
+
 import Hero from "./Components/Hero";
-import type { MenuTheme } from "antd";
-import Icon, { HomeOutlined } from "@ant-design/icons";
+import Nav from "./Components/Nav";
+
+import { HomeOutlined } from "@ant-design/icons";
+
 import { Layout } from "antd";
-import { Nav } from "./Components/Nav";
 const { Header, Footer, Content } = Layout;
+const heroImg = require("./Media/img/Hero.png");
 
 interface config {
   // general: {
@@ -15,8 +18,7 @@ interface config {
     label?: string;
     icon?: React.ReactNode;
     items: [{ name: string; to: string; icon?: React.ReactNode }];
-    theme?: MenuTheme;
-    style?: CSSProperties;
+    color: { background: string; text: string };
   };
   // section: {
   //   img: { img: "./media/titleImg"; left: boolean };
@@ -47,13 +49,12 @@ interface config {
   //   ];
   // };
   // footer: { text1: ""; text2: ""; links: []; icons: [] };
-  // hero: {
-  //   img: "./media/hero";
-  //   leftCenter: "";
-  //   centerCenter: "";
-  //   rightCenter: "";
-  //   // grid etc takes in text, img or vid
-  // };
+  hero: {
+    img: string; // link | file path
+    centerCenter?: React.ReactNode | string;
+    rightBottom?: React.ReactNode | string;
+    // grid etc takes in text, img or vid
+  };
   // photos: [];
   // reels: [];
 }
@@ -67,7 +68,11 @@ const appConfig: config = {
         icon: <HomeOutlined />,
       },
     ],
-    theme: "dark",
+    color: { background: "ignored? set in css for now", text: "#fff" },
+  },
+  hero: {
+    img: heroImg,
+    rightBottom: <>right bottom</>,
   },
 };
 
@@ -75,13 +80,15 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Layout>
-        <Header>
-          <Nav theme={appConfig.nav.theme} items={appConfig.nav.items} />
+        <Header className="nav-hero-container">
+          <Nav color={appConfig.nav.color} items={appConfig.nav.items} />
+          <Hero
+            img={appConfig.hero.img}
+            rightBottom={appConfig.hero.rightBottom}
+          />
         </Header>
-        {/* <Content>
-          <Hero />
-        </Content>
-        <Footer>Footer</Footer> */}
+        {/* <Content></Content> */}
+        {/* <Footer>Footer</Footer> */}
       </Layout>
     </div>
   );

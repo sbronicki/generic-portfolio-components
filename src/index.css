@@ -12,3 +12,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.nav-hero-container {
+  background: url("./Media/img/Hero.png") no-repeat center top/cover;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.nav-hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
+.nav {
+  opacity: 0.9;
+  position: fixed;
+  transition: 0.3s ease-in;
+  border: none;
+  background: #293477;
+}
+.nav.top {
+  background: transparent !important;
+}
+.nav-item {
+  background-color: transparent;
+}
+.hero {
+  background-color: transparent;
+}

@@ -1,22 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Menu } from "antd";
-import type { MenuTheme } from "antd";
+
 interface NavProps {
   label?: string;
   icon?: React.ReactNode;
   items: [{ name: string; to: string; icon?: React.ReactNode }];
-  theme?: MenuTheme;
+  color: { background: string; text: string };
 }
 
-export const Nav = ({ items, theme }: NavProps) => {
+const Nav = ({ items, color }: NavProps) => {
+  const [top, setTop] = useState("top");
+
+  useEffect(() => {
+    const onScroll = () =>
+      window.pageYOffset > 200 ? setTop("") : setTop("top");
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [top]);
   return (
-    <Menu theme={theme} mode="horizontal">
+    <Menu
+      className={`nav ${top}`}
+      mode="horizontal"
+      style={{
+        backgroundColor: color.background + " !important", // this gets ignored for some reason
+        color: color.text,
+      }}
+    >
       {items.map((item) => (
-        <Menu.Item key={item.to} icon={item.icon}>
-          <a href={item.to}>{item.name}</a>
+        <Menu.Item className="nav-item" key={item.to} icon={item.icon}>
+          <a href={item.to}>
+            <span style={{ color: color.text }}>{item.name}</span>
+          </a>
         </Menu.Item>
       ))}
     </Menu>
   );
 };
+
+export default Nav;
