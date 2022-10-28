@@ -14,7 +14,7 @@ interface NavProps {
   color: { background: string; text: string };
 }
 
-const Nav = ({ items, color }: NavProps) => {
+const Nav = ({ items, color, label, icon }: NavProps) => {
   const [top, setTop] = useState("top");
 
   useEffect(() => {
@@ -31,17 +31,29 @@ const Nav = ({ items, color }: NavProps) => {
       className={`nav ${top}`}
       mode="horizontal"
       style={{
+        width: "100%",
         backgroundColor: color.background + " !important", // this gets ignored for some reason
         color: color.text,
+        display: "flex",
+        justifyContent: label || icon ? "space-between" : "center",
       }}
     >
-      {items.map((item) => (
-        <Menu.Item className="nav-item" key={item.to} icon={item.icon}>
-          <a href={item.to}>
-            <span style={{ color: color.text }}>{item.name}</span>
-          </a>
-        </Menu.Item>
-      ))}
+      {(label || icon) && (
+        <span>
+          <Menu.Item key="label" className="nav-item nav-label" icon={icon}>
+            {label}
+          </Menu.Item>
+        </span>
+      )}
+      <span style={{ display: "flex" }}>
+        {items.map((item) => (
+          <Menu.Item className="nav-item" key={item.to} icon={item.icon}>
+            <a href={item.to}>
+              <span style={{ color: color.text }}>{item.name}</span>
+            </a>
+          </Menu.Item>
+        ))}
+      </span>
     </Menu>
   );
 };

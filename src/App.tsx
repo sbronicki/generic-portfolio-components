@@ -1,9 +1,9 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, ReactNode } from "react";
 
 import Hero from "./Components/Hero";
 import Nav from "./Components/Nav";
 
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, VideoCameraOutlined } from "@ant-design/icons";
 
 import { Layout, Typography } from "antd";
 const { Header, Footer, Content } = Layout;
@@ -60,7 +60,8 @@ interface config {
 }
 
 // modeling after ajp site for development
-// css exceptions so far: hero img, nav item bg color
+// css exceptions so far: hero img, nav item bg color, nav label/icon color
+// search("config") in css
 const appConfig: config = {
   nav: {
     items: [
@@ -85,6 +86,8 @@ const appConfig: config = {
         to: "#contact",
       },
     ],
+    label: "Anthony Jan Potter",
+    icon: <VideoCameraOutlined />,
     color: { background: "ignored? set in css for now", text: "#fff" },
   },
   hero: {
@@ -101,7 +104,12 @@ const App: React.FC = () => {
     <div className="App">
       <Layout>
         <Header className="nav-hero-container">
-          <Nav color={appConfig.nav.color} items={appConfig.nav.items} />
+          <Nav
+            label={appConfig.nav.label}
+            icon={appConfig.nav.icon}
+            color={appConfig.nav.color}
+            items={appConfig.nav.items}
+          />
           <Hero rightBottom={appConfig.hero.rightBottom} />
         </Header>
         {/* <Content></Content> */}

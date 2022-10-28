@@ -13,6 +13,7 @@ code {
     monospace;
 }
 .nav-hero-container {
+  /* config */
   background: url("./Media/img/TempHero.jpg") no-repeat center top/cover;
   background-size: cover;
   height: 100vh;
@@ -33,6 +34,7 @@ code {
   position: fixed;
   transition: 0.3s ease-in;
   border: none;
+  /* config */
   background: #293477;
 }
 .nav.top {
@@ -40,6 +42,13 @@ code {
 }
 .nav-item {
   background-color: transparent;
+  font-weight: 500;
+}
+.nav-label {
+  font-size: large;
+  font-weight: 500;
+  /* config */
+  color: #fff !important;
 }
 .hero {
   background-color: transparent;
