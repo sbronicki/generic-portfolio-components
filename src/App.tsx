@@ -5,9 +5,10 @@ import Nav from "./Components/Nav";
 
 import { HomeOutlined } from "@ant-design/icons";
 
-import { Layout } from "antd";
+import { Layout, Typography } from "antd";
 const { Header, Footer, Content } = Layout;
-const heroImg = require("./Media/img/Hero.png");
+const heroImg = require("./Media/img/TempHero.jpg");
+const { Text, Title } = Typography;
 
 interface config {
   // general: {
@@ -50,7 +51,6 @@ interface config {
   // };
   // footer: { text1: ""; text2: ""; links: []; icons: [] };
   hero: {
-    img: string; // link | file path
     centerCenter?: React.ReactNode | string;
     rightBottom?: React.ReactNode | string;
     // grid etc takes in text, img or vid
@@ -71,8 +71,11 @@ const appConfig: config = {
     color: { background: "ignored? set in css for now", text: "#fff" },
   },
   hero: {
-    img: heroImg,
-    rightBottom: <>right bottom</>,
+    rightBottom: (
+      <Title level={4} style={{ color: "#fff" }}>
+        Contact Email: example@email.site
+      </Title>
+    ),
   },
 };
 
@@ -82,10 +85,7 @@ const App: React.FC = () => {
       <Layout>
         <Header className="nav-hero-container">
           <Nav color={appConfig.nav.color} items={appConfig.nav.items} />
-          <Hero
-            img={appConfig.hero.img}
-            rightBottom={appConfig.hero.rightBottom}
-          />
+          <Hero rightBottom={appConfig.hero.rightBottom} />
         </Header>
         {/* <Content></Content> */}
         {/* <Footer>Footer</Footer> */}
