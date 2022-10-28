@@ -10,7 +10,7 @@ interface HeroProps {
 
 const Hero = ({ centerCenter, rightBottom }: HeroProps) => {
   return (
-    <Layout className="hero">
+    <Layout id="home" className="hero">
       <Content>
         <Row style={{ height: "30vh" }}>
           <Col className="hero-col" span={8}></Col>
