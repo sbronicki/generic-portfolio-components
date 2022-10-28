@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import { Menu } from "antd";
 
+interface NavItem {
+  name: string;
+  to: string;
+  icon?: React.ReactNode;
+}
 interface NavProps {
   label?: string;
   icon?: React.ReactNode;
-  items: [{ name: string; to: string; icon?: React.ReactNode }];
+  items: NavItem[];
   color: { background: string; text: string };
 }
 
@@ -21,6 +26,7 @@ const Nav = ({ items, color }: NavProps) => {
   }, [top]);
   return (
     <Menu
+      defaultSelectedKeys={[items[0].to]}
       className={`nav ${top}`}
       mode="horizontal"
       style={{

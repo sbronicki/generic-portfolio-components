@@ -18,7 +18,7 @@ interface config {
   nav: {
     label?: string;
     icon?: React.ReactNode;
-    items: [{ name: string; to: string; icon?: React.ReactNode }];
+    items: NavItem[];
     color: { background: string; text: string };
   };
   // section: {
@@ -67,6 +67,16 @@ const appConfig: config = {
         to: "#home",
         icon: <HomeOutlined />,
       },
+      {
+        name: "About",
+        to: "#about",
+        icon: <HomeOutlined />,
+      },
+      {
+        name: "Contact",
+        to: "#contact",
+        icon: <HomeOutlined />,
+      },
     ],
     color: { background: "ignored? set in css for now", text: "#fff" },
   },
@@ -95,3 +105,9 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+interface NavItem {
+  name: string;
+  to: string;
+  icon?: React.ReactNode;
+}
