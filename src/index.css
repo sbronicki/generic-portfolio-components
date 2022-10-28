@@ -19,6 +19,8 @@ code {
   height: 100vh;
   width: 100vw;
   position: relative;
+  padding: 0;
+  z-index: 100;
 }
 .nav-hero-container::before {
   content: "";
@@ -57,4 +59,6 @@ code {
 .hero-col {
   text-align: center;
   align-self: center;
+}
+.section-row {
 }

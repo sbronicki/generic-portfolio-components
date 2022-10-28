@@ -129,7 +129,7 @@ interface NavItem {
   icon?: React.ReactNode;
 }
 interface Section {
-  img: { img: string; left: boolean };
+  img?: { img: string; left: boolean };
   title: string;
   icon?: React.ReactNode;
   content: string | React.ReactNode;
