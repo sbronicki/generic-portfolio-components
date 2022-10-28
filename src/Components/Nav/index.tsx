@@ -26,6 +26,7 @@ const Nav = ({ items, color }: NavProps) => {
   }, [top]);
   return (
     <Menu
+      disabledOverflow={true}
       defaultSelectedKeys={[items[0].to]}
       className={`nav ${top}`}
       mode="horizontal"

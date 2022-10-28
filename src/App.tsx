@@ -59,23 +59,30 @@ interface config {
   // reels: [];
 }
 
+// modeling after ajp site for development
+// css exceptions so far: hero img, nav item bg color
 const appConfig: config = {
   nav: {
     items: [
       {
         name: "Home",
         to: "#home",
-        icon: <HomeOutlined />,
       },
       {
         name: "About",
         to: "#about",
-        icon: <HomeOutlined />,
+      },
+      {
+        name: "Photos",
+        to: "#photos",
+      },
+      {
+        name: "Reels",
+        to: "#reels",
       },
       {
         name: "Contact",
         to: "#contact",
-        icon: <HomeOutlined />,
       },
     ],
     color: { background: "ignored? set in css for now", text: "#fff" },
