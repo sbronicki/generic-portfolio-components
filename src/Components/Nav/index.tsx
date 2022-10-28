@@ -47,7 +47,7 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
       )}
       <span style={{ display: "flex" }}>
         {items.map((item) => (
-          <Menu.Item className="nav-item" key={item.to} icon={item.icon}>
+          <Menu.Item className="nav-item" key={item.name} icon={item.icon}>
             <a href={item.to}>
               <span style={{ color: color.text }}>{item.name}</span>
             </a>
