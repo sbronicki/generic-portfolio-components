@@ -58,7 +58,7 @@ interface config {
     title?: string;
     icon?: React.ReactNode;
     message?: string;
-    fields: string[];
+    fields: Field[];
   };
   footer: {
     label?: string;
@@ -122,7 +122,12 @@ const appConfig: config = {
     },
     title: "Contact",
     // message: "Fill out this form to get in touch!",
-    fields: ["Name", "Email", "Phone", "Message"],
+    fields: [
+      { label: "Name" },
+      { label: "Email" },
+      { label: "Phone" },
+      { label: "Message", inputType: "area" },
+    ],
     icon: <ContactsOutlined style={{ paddingRight: "7px" }} />,
   },
   footer: {
@@ -213,4 +218,8 @@ interface SectionInterface {
 interface FooterItem {
   to: string;
   icon: React.ReactNode;
+}
+interface Field {
+  label: string;
+  inputType?: string;
 }

@@ -1,4 +1,5 @@
 import { Form, Input } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import React from "react";
 
 import Section from "../Section";
@@ -9,7 +10,7 @@ interface ContactProps {
   icon?: React.ReactNode;
   message?: string;
   navId?: string;
-  fields: string[];
+  fields: Field[];
 }
 
 const Contact = ({ img, title, icon, message, fields }: ContactProps) => {
@@ -27,16 +28,24 @@ const Contact = ({ img, title, icon, message, fields }: ContactProps) => {
 
 export default Contact;
 
+interface Field {
+  label: string;
+  inputType?: string;
+}
 interface FormProps {
-  fields: string[];
+  fields: Field[];
 }
 const ContactForm = ({ fields }: FormProps) => {
   return (
-    <Form>
+    <Form wrapperCol={{ span: 16 }} labelCol={{ span: 3, offset: 0 }}>
       {fields.map((field, i) => {
         return (
-          <Form.Item name={["contact", field]} label={field} key={field}>
-            <Input />
+          <Form.Item
+            name={["contact", field.label]}
+            label={field.label}
+            key={field.label}
+          >
+            {field.inputType === "area" ? <TextArea rows={4} /> : <Input />}
           </Form.Item>
         );
       })}
