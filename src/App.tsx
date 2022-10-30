@@ -108,6 +108,7 @@ const appConfig: config = {
   },
   section: [
     {
+      navId: "about",
       icon: <VideoCameraOutlined style={{ paddingRight: "7px" }} />,
       title: "Actor, Writer, Producer",
       content:

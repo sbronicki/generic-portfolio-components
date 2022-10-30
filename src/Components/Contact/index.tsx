@@ -1,9 +1,12 @@
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
+import { FormInstance } from "antd/es/form/Form";
 import TextArea from "antd/lib/input/TextArea";
-import React from "react";
+import React, { useState } from "react";
+import { Typography } from "antd";
 
 import Section from "../Section";
 
+const { Text } = Typography;
 interface ContactProps {
   img?: { img: string; left: boolean };
   title?: string;
@@ -36,19 +39,55 @@ interface FormProps {
   fields: Field[];
 }
 const ContactForm = ({ fields }: FormProps) => {
+  const [finished, setFinished] = useState(false);
+  const formRef = React.createRef<FormInstance>();
+  const onClear = () => formRef.current!.resetFields();
+  const onFinish = (values: string) => {
+    onClear();
+    setFinished(true);
+  };
+
   return (
-    <Form wrapperCol={{ span: 16 }} labelCol={{ span: 3, offset: 0 }}>
+    <Form
+      ref={formRef}
+      wrapperCol={{ span: 16 }}
+      labelCol={{ span: 3, offset: 0 }}
+      onFinish={onFinish}
+    >
       {fields.map((field, i) => {
         return (
           <Form.Item
-            name={["contact", field.label]}
+            rules={field.label === "Phone" ? [] : [{ required: true }]}
+            name={[field.label]}
             label={field.label}
             key={field.label}
           >
-            {field.inputType === "area" ? <TextArea rows={4} /> : <Input />}
+            {field.inputType === "area" ? (
+              <TextArea rows={5} maxLength={350} />
+            ) : (
+              <Input maxLength={50} />
+            )}
           </Form.Item>
         );
       })}
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button
+          className="button"
+          disabled={finished}
+          type="primary"
+          htmlType="submit"
+        >
+          Submit
+        </Button>
+        <Button className="button" htmlType="button" onClick={onClear}>
+          Clear Form
+        </Button>
+      </Form.Item>
+      {finished && (
+        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+          {<Text>Thanks for reaching out!</Text>}
+        </Form.Item>
+      )}
     </Form>
   );
 };

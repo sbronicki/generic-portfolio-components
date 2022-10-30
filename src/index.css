@@ -81,3 +81,6 @@ code {
   border-bottom: none !important;
   transition: none !important;
 }
+.button {
+  margin: 0 0.125em;
+}
