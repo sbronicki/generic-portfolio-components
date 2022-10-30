@@ -28,7 +28,6 @@ code {
   left: 0%;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
 }
 .nav {
   opacity: 0.9;
@@ -59,5 +58,23 @@ code {
   text-align: center;
   align-self: center;
 }
-.section-row {
+.footer-container {
+  padding: 0 !important;
+  height: 110px;
+}
+.footer {
+  opacity: 0.9;
+  border: none !important;
+  height: 100%;
+  /* config */
+  background: #293477;
+}
+.footer-item {
+  border: none !important;
+  background-color: transparent;
+}
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after {
+  border-bottom: none !important;
+  transition: none !important;
 }

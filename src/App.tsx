@@ -2,6 +2,8 @@ import React, { CSSProperties, ReactNode } from "react";
 
 import Hero from "./Components/Hero";
 import Nav from "./Components/Nav";
+import Section from "./Components/Section";
+import FooterComponent from "./Components/Footer";
 
 import {
   BookOutlined,
@@ -9,12 +11,12 @@ import {
   UserOutlined,
   VideoCameraAddOutlined,
   VideoCameraOutlined,
+  YoutubeOutlined,
 } from "@ant-design/icons";
 
 import { Layout, Typography } from "antd";
-import Section from "./Components/Section";
 
-const { Header, Footer, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 const TempAbout = require("./Media/img/TempAbout.jpg");
@@ -32,7 +34,14 @@ interface config {
     items: NavItem[];
     color: { background: string; text: string };
   };
+  hero: {
+    centerCenter?: React.ReactNode | string;
+    rightBottom?: React.ReactNode | string;
+    // grid etc takes in text, img or vid
+  };
   section?: SectionInterface[];
+  // photos: [];
+  // reels: [];
   // contact: {
   //   img: { img: "./media/titleImg"; left: boolean };
   //   text1: { size: ""; value: "" };
@@ -44,13 +53,11 @@ interface config {
   //   message: { required: boolean; show: boolean };
   // };
   // footer: { text1: ""; text2: ""; links: []; icons: [] };
-  hero: {
-    centerCenter?: React.ReactNode | string;
-    rightBottom?: React.ReactNode | string;
-    // grid etc takes in text, img or vid
+  footer: {
+    label?: string;
+    items: FooterItem[];
+    color: { background: string; text: string };
   };
-  // photos: [];
-  // reels: [];
 }
 
 // modeling after ajp site for development
@@ -115,6 +122,27 @@ const appConfig: config = {
       img: { img: TempAuthor, left: true },
     },
   ],
+  footer: {
+    label: "Copyright © 2022 AJP ENTERPRISES",
+    color: {
+      background: "ignored? set in css for now will come from General",
+      text: "#fff",
+    },
+    items: [
+      {
+        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        icon: <YoutubeOutlined style={{ fontSize: "32px" }} />,
+      },
+      {
+        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        icon: <YoutubeOutlined style={{ fontSize: "32px" }} />,
+      },
+      {
+        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        icon: <YoutubeOutlined style={{ fontSize: "32px" }} />,
+      },
+    ],
+  },
 };
 
 const App: React.FC = () => {
@@ -142,7 +170,13 @@ const App: React.FC = () => {
               />
             ))}
         </Content>
-        {/* <Footer>Footer</Footer> */}
+        <Footer className="footer-container">
+          <FooterComponent
+            items={appConfig.footer.items}
+            label={appConfig.footer.label}
+            color={appConfig.footer.color}
+          />
+        </Footer>
       </Layout>
     </div>
   );
@@ -161,4 +195,8 @@ interface SectionInterface {
   icon?: React.ReactNode;
   content: string | React.ReactNode;
   navId?: string;
+}
+interface FooterItem {
+  to: string;
+  icon: React.ReactNode;
 }
