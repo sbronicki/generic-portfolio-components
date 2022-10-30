@@ -134,15 +134,17 @@ const appConfig: config = {
     items: [
       {
         to: "https://instagram.com/anthony.jan.potter",
-        icon: <InstagramOutlined style={{ fontSize: "32px" }} />,
+        icon: (
+          <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faInstagram} />
+        ),
       },
       {
-        to: "https://www.youtube.com/user/Pimpdaddypottz",
-        icon: <YoutubeOutlined style={{ fontSize: "32px" }} />,
-      },
-      {
-        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        to: "https://www.imdb.com/name/nm6120771/",
         icon: <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faImdb} />,
+      },
+      {
+        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        icon: <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faYoutube} />,
       },
     ],
   },
