@@ -1,3 +1,4 @@
+import { Form, Input } from "antd";
 import React from "react";
 
 import Section from "../Section";
@@ -30,5 +31,15 @@ interface FormProps {
   fields: string[];
 }
 const ContactForm = ({ fields }: FormProps) => {
-  return <>CONTACT FORM</>;
+  return (
+    <Form>
+      {fields.map((field, i) => {
+        return (
+          <Form.Item name={["contact", field]} label={field} key={field}>
+            <Input />
+          </Form.Item>
+        );
+      })}
+    </Form>
+  );
 };
