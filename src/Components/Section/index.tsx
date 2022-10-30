@@ -18,13 +18,31 @@ const Section = ({ img, title, content, icon, navId }: SectionProps) => {
       id={navId}
       className={`section-row`}
       style={{ flexDirection: img?.left ? "row" : "row-reverse" }}
+      align="middle"
+      justify="center"
     >
       {img && (
-        <Col span={12}>
-          <Image src={img?.img} preview={false} />
+        <Col
+          style={{ padding: "3em", display: "flex", justifyContent: "center" }}
+          span={12}
+        >
+          <Image
+            style={{ maxHeight: "750px" }}
+            src={img?.img}
+            preview={false}
+          />
         </Col>
       )}
-      <Col span={img ? 12 : 24}>
+      <Col
+        style={{
+          padding: img
+            ? img?.left
+              ? "3.5em 5em 3.5em 1em"
+              : "3.5em 1em 3.5em 5em"
+            : "5em 11em",
+        }}
+        span={img ? 12 : 24}
+      >
         <Title level={4}>
           {icon}
           {title}
@@ -32,6 +50,7 @@ const Section = ({ img, title, content, icon, navId }: SectionProps) => {
         <Divider />
         <Text>{content}</Text>
       </Col>
+      <Divider />
     </Row>
   );
 };
