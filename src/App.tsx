@@ -81,7 +81,7 @@ const appConfig: config = {
       },
     ],
     label: "Anthony Jan Potter",
-    icon: <VideoCameraOutlined />,
+    // icon: <VideoCameraAddOutlined />,
     color: { background: "ignored? set in css for now", text: "#fff" },
   },
   hero: {
@@ -101,7 +101,7 @@ const appConfig: config = {
       navId: "about",
     },
     {
-      icon: <VideoCameraAddOutlined style={{ paddingRight: "7px" }} />,
+      icon: <VideoCameraOutlined style={{ paddingRight: "7px" }} />,
       title: "Actor",
       content:
         "Ive spent the last seven years cultivating my craft and made important strides to be a consistent, reliable, interesting , courageous, and fun actor to work with. A resume with a lot of theater I’ve recently moved to Los Angeles to break into the film buisness. I’ve gotten training from Stella Adler, learned Stanislavsky, and got a Bachelors in Acting and Playwriting from Marymount Manhattan college. I've learned from teachers from Yale, Royal Shakespear company, and Yat malgrem Technique (Drama center London). In LA I’m apart of Antaeus Theater, worked with several coaches and now have a studio I work with. Acting is in my blood, it feels like lava from a volcano filled with passion and excitement creating new land to explore. To be an actor allows me the freedom in an ironic way to find myself, Fight for myself and become a better version of myself. “The present is not potential past. Its the moment of choice and action” James Baldwin",
