@@ -7,6 +7,7 @@ import FooterComponent from "./Components/Footer";
 
 import {
   BookOutlined,
+  ContactsOutlined,
   HomeOutlined,
   UserOutlined,
   VideoCameraAddOutlined,
@@ -15,6 +16,7 @@ import {
 } from "@ant-design/icons";
 
 import { Layout, Typography } from "antd";
+import Contact from "./Components/Contact";
 
 const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
@@ -22,6 +24,7 @@ const { Text, Title } = Typography;
 const TempAbout = require("./Media/img/TempAbout.jpg");
 const TempActor = require("./Media/img/TempActor.jpg");
 const TempAuthor = require("./Media/img/TempAuthor.jpg");
+const TempContact = require("./Media/img/TempContact.jpg");
 
 interface config {
   // general: {
@@ -42,17 +45,13 @@ interface config {
   section?: SectionInterface[];
   // photos: [];
   // reels: [];
-  // contact: {
-  //   img: { img: "./media/titleImg"; left: boolean };
-  //   text1: { size: ""; value: "" };
-  //   text2: { size: ""; value: "" };
-  //   text3: { size: ""; value: "" };
-  //   name: { required: boolean; show: boolean };
-  //   email: { required: boolean; show: boolean };
-  //   phone: { required: boolean; show: boolean };
-  //   message: { required: boolean; show: boolean };
-  // };
-  // footer: { text1: ""; text2: ""; links: []; icons: [] };
+  contact: {
+    img?: { img: string; left: boolean };
+    title?: string;
+    icon?: React.ReactNode;
+    message?: string;
+    fields: string[];
+  };
   footer: {
     label?: string;
     items: FooterItem[];
@@ -122,6 +121,16 @@ const appConfig: config = {
       img: { img: TempAuthor, left: true },
     },
   ],
+  contact: {
+    img: {
+      img: TempContact,
+      left: true,
+    },
+    title: "Contact",
+    // message: "Fill out this form to get in touch!",
+    fields: ["Name", "Email", "Phone", "Message"],
+    icon: <ContactsOutlined style={{ paddingRight: "7px" }} />,
+  },
   footer: {
     label: "Copyright © 2022 AJP ENTERPRISES",
     color: {
@@ -166,9 +175,17 @@ const App: React.FC = () => {
                 title={sect.title}
                 content={sect.content}
                 icon={sect.icon}
+                message={sect.message}
                 navId={sect.navId}
               />
             ))}
+          <Contact
+            title={appConfig.contact.title}
+            icon={appConfig.contact.icon}
+            message={appConfig.contact.message}
+            fields={appConfig.contact.fields}
+            img={appConfig.contact.img}
+          />
         </Content>
         <Footer className="footer-container">
           <FooterComponent
@@ -195,6 +212,7 @@ interface SectionInterface {
   icon?: React.ReactNode;
   content: string | React.ReactNode;
   navId?: string;
+  message?: string;
 }
 interface FooterItem {
   to: string;

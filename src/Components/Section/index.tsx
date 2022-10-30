@@ -5,20 +5,28 @@ import { Col, Row, Image, Typography, Divider } from "antd";
 const { Text, Title } = Typography;
 
 interface SectionProps {
-  img?: { img: string; left: boolean };
-  title: string;
+  img?: { img?: string; left?: boolean };
+  title?: string;
+  message?: string;
   icon?: React.ReactNode;
   content: string | React.ReactNode;
   navId?: string;
 }
 
-const Section = ({ img, title, content, icon, navId }: SectionProps) => {
+const Section = ({
+  img,
+  title,
+  content,
+  icon,
+  navId,
+  message,
+}: SectionProps) => {
   return (
     <Row
       id={navId}
       className={`section-row`}
       style={{ flexDirection: img?.left ? "row" : "row-reverse" }}
-      align="middle"
+      align={navId === "contact" ? "top" : "middle"}
       justify="center"
     >
       {img && (
@@ -46,6 +54,7 @@ const Section = ({ img, title, content, icon, navId }: SectionProps) => {
         <Title level={4}>
           {icon}
           {title}
+          {message}
         </Title>
         <Divider />
         <Text>{content}</Text>
