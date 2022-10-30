@@ -63,7 +63,6 @@ code {
   height: 110px;
 }
 .footer {
-  opacity: 0.9;
   border: none !important;
   height: 100%;
   /* config */
@@ -72,6 +71,10 @@ code {
 .footer-item {
   border: none !important;
   background-color: transparent;
+}
+.footer-label {
+  background: #293477;
+  height: 40%;
 }
 .ant-menu-horizontal > .ant-menu-item::after,
 .ant-menu-horizontal > .ant-menu-submenu::after {

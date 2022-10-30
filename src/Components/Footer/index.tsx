@@ -17,7 +17,7 @@ const Footer = ({ label, items, color }: FooterProps) => {
     <Row
       style={{ height: "100%", flexDirection: "column", flexFlow: "column" }}
     >
-      <Col style={{ height: "100%" }}>
+      <Col style={{ height: label ? "60%" : "100%" }}>
         <Menu
           disabledOverflow={true}
           className="footer"
@@ -27,7 +27,7 @@ const Footer = ({ label, items, color }: FooterProps) => {
             color: color.text,
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: label ? "flex-end" : "center",
           }}
         >
           {items.map((item, i) => {
@@ -41,7 +41,20 @@ const Footer = ({ label, items, color }: FooterProps) => {
           })}
         </Menu>
       </Col>
-      {/* {label && <Col>{label}</Col>} */}
+      {label && (
+        <Col
+          className="footer-label"
+          style={{
+            display: "flex",
+            background: color.background + " !important",
+            color: color.text,
+            alignItems: "flex-start",
+            justifyContent: "center",
+          }}
+        >
+          {label}
+        </Col>
+      )}
     </Row>
   );
 };

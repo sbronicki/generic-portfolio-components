@@ -125,7 +125,7 @@ const appConfig: config = {
   footer: {
     label: "Copyright © 2022 AJP ENTERPRISES",
     color: {
-      background: "ignored? set in css for now will come from General",
+      background: "#293477",
       text: "#fff",
     },
     items: [
