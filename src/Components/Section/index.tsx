@@ -56,7 +56,7 @@ const Section = ({
           {title}
           {message}
         </Title>
-        <Divider />
+        {(icon || title || message) && <Divider />}
         <Text>{content}</Text>
       </Col>
       <Divider />

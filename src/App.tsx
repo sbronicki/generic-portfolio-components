@@ -25,6 +25,7 @@ import {
 
 import { Layout, Typography } from "antd";
 import Contact from "./Components/Contact";
+import Reels from "./Components/Reels";
 
 const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
@@ -52,7 +53,10 @@ interface config {
   };
   section?: SectionInterface[];
   // photos: [];
-  // reels: [];
+  reels?: {
+    title: string;
+    reels: Reel[];
+  };
   contact: {
     img?: { img: string; left: boolean };
     title?: string;
@@ -70,7 +74,7 @@ interface config {
 // modeling after ajp site for development
 // css exceptions so far: hero img, nav item bg color, nav label/icon color
 // search("config") in css
-// photos, <i class="fa-brands fa-imdb"></i>, reels
+// todo: mobile styling, photos, reels
 const appConfig: config = {
   nav: {
     items: [
@@ -116,6 +120,16 @@ const appConfig: config = {
       img: { img: TempActor, left: false },
     },
   ],
+  reels: {
+    title: "Reels",
+    reels: [
+      {
+        title: "Venom Coast",
+        link: "https://www.youtube.com/watch?v=QS1vf7bK__8",
+        description: "AJP as 'Kirk' in Venom Coast by Michael Fredianelli",
+      },
+    ],
+  },
   contact: {
     img: {
       img: TempContact,
@@ -181,6 +195,12 @@ const App: React.FC = () => {
                 navId={sect.navId}
               />
             ))}
+          {appConfig.reels && (
+            <Reels
+              title={appConfig.reels.title}
+              reels={appConfig.reels.reels}
+            />
+          )}
           <Contact
             title={appConfig.contact.title}
             icon={appConfig.contact.icon}
@@ -223,4 +243,9 @@ interface FooterItem {
 interface Field {
   label: string;
   inputType?: string;
+}
+interface Reel {
+  title: string;
+  description?: string | React.ReactNode;
+  link: string;
 }
