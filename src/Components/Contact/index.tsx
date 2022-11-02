@@ -57,13 +57,15 @@ const ContactForm = ({ fields }: FormProps) => {
       {fields.map((field, i) => {
         return (
           <Form.Item
-            rules={field.label === "Phone" ? [] : [{ required: true }]}
+            rules={
+              field.label === "Phone" ? [{ max: 18 }] : [{ required: true }]
+            }
             name={[field.label]}
             label={field.label}
             key={field.label}
           >
             {field.inputType === "area" ? (
-              <TextArea rows={5} maxLength={350} />
+              <TextArea rows={5} maxLength={300} />
             ) : (
               <Input maxLength={50} />
             )}
