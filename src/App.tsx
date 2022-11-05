@@ -160,9 +160,30 @@ const appConfig: config = {
     title: "Reels",
     reels: [
       {
+        title: "Left Behind",
+        link: "https://www.youtube.com/watch?v=3GeAa100ZX4",
+        description: "A scene from a movie I Produced and Acted in.",
+      },
+      {
         title: "Venom Coast",
         link: "https://www.youtube.com/watch?v=QS1vf7bK__8",
         description: "AJP as 'Kirk' in Venom Coast by Michael Fredianelli",
+      },
+      {
+        title: "How to be a Superhero",
+        link: "https://www.youtube.com/watch?v=aYucD-Lcvm4",
+        description: "Directed and Written by Brendan Calton.",
+      },
+      {
+        title: "Golden State",
+        link: "https://www.youtube.com/watch?v=NH6_wWrTlnQ",
+        description: '"They say gold has a strange effect on a man.."',
+      },
+      {
+        title: "Silent Hellp",
+        link: "https://www.youtube.com/watch?v=I4PtsWSHFF4",
+        description:
+          'Good Stroke Productions Presents "Silent Hellp" Directed by Anthony Potter and Dylan Kret.',
       },
     ],
   },
