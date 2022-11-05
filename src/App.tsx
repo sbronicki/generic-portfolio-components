@@ -136,13 +136,13 @@ const appConfig: config = {
     description: "AJP Headshots",
     photos: [
       {
-        title: "Photos by Person #1",
+        panelHeader: "Photos by Person #1",
         description: "Short description of the photos in this batch",
         default: true,
         photos: [{ img: TempAbout }, { img: TempAuthor }],
       },
       {
-        title: "Photos by Person #2",
+        panelHeader: "Photos by Person #2",
         description: "Short description of the photos in this batch",
         photos: [{ img: TempActor }, { img: TempContact }],
       },
@@ -286,7 +286,7 @@ interface Reel {
 }
 interface Batch {
   photos: Photo[];
-  title?: string;
+  panelHeader?: string;
   description?: string;
   default?: boolean;
 }
