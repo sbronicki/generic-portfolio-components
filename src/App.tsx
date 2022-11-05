@@ -26,6 +26,7 @@ import {
 import { Layout, Typography } from "antd";
 import Contact from "./Components/Contact";
 import Reels from "./Components/Reels";
+import Photos from "./Components/Photos";
 
 const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
@@ -44,7 +45,10 @@ interface config {
     label?: string;
     icon?: React.ReactNode;
     items: NavItem[];
-    color: { background: string; text: string };
+    color: {
+      background: string;
+      text: string;
+    };
   };
   hero: {
     centerCenter?: React.ReactNode | string;
@@ -52,13 +56,20 @@ interface config {
     // grid etc takes in text, img or vid
   };
   section?: SectionInterface[];
-  // photos: [];
+  photos?: {
+    title: string;
+    description: string;
+    photos: Batch[];
+  };
   reels?: {
     title: string;
     reels: Reel[];
   };
   contact: {
-    img?: { img: string; left: boolean };
+    img?: {
+      img: string;
+      left: boolean;
+    };
     title?: string;
     icon?: React.ReactNode;
     message?: string;
@@ -120,6 +131,23 @@ const appConfig: config = {
       img: { img: TempActor, left: false },
     },
   ],
+  photos: {
+    title: "Photos",
+    description: "AJP Headshots",
+    photos: [
+      {
+        title: "Photos by Person #1",
+        description: "Short description of the photos in this batch",
+        default: true,
+        photos: [{ img: TempAbout }, { img: TempAuthor }],
+      },
+      {
+        title: "Photos by Person #2",
+        description: "Short description of the photos in this batch",
+        photos: [{ img: TempActor }, { img: TempContact }],
+      },
+    ],
+  },
   reels: {
     title: "Reels",
     reels: [
@@ -195,6 +223,13 @@ const App: React.FC = () => {
                 navId={sect.navId}
               />
             ))}
+          {appConfig.photos && (
+            <Photos
+              title={appConfig.photos.title}
+              description={appConfig.photos.description}
+              photos={appConfig.photos.photos}
+            />
+          )}
           {appConfig.reels && (
             <Reels
               title={appConfig.reels.title}
@@ -248,4 +283,13 @@ interface Reel {
   title: string;
   description?: string | React.ReactNode;
   link: string;
+}
+interface Batch {
+  photos: Photo[];
+  title?: string;
+  description?: string;
+  default?: boolean;
+}
+interface Photo {
+  img: string;
 }
