@@ -1,4 +1,4 @@
-import { Carousel, Collapse, Image } from "antd";
+import { Carousel, Collapse, Image, Row, Col } from "antd";
 import React from "react";
 import Section from "../Section";
 
@@ -22,6 +22,11 @@ interface PhotoSectionProps {
   batches: Batch[];
 }
 
+interface PhotoDivProps {
+  src: string;
+  key: number;
+}
+
 const Photos = ({ title, description, photos }: PhotoProps) => {
   return (
     <Section
@@ -39,19 +44,41 @@ const PhotoSection = ({ batches }: PhotoSectionProps) => {
       {batches.map((batch, i) => {
         return (
           <Panel header={batch.panelHeader} key={`batch-${i}`}>
-            <Carousel>
-              {batch.photos.map((photo, j) => {
-                return (
-                  <div>
-                    <Image preview={false} key={`photo-${j}`} src={photo.img} />
-                  </div>
-                );
-              })}
-            </Carousel>
+            <BatchContainer photos={batch.photos} />
           </Panel>
         );
       })}
     </Collapse>
+  );
+};
+
+const BatchContainer = ({ photos }: Batch) => {
+  return (
+    <Row className="batch-container">
+      {photos.map((photo, i) => {
+        return (
+          <Col>
+            <PhotoDiv key={i} src={photo.img} />
+          </Col>
+        );
+      })}
+    </Row>
+  );
+};
+
+const PhotoDiv = ({ key, src }: PhotoDivProps) => {
+  return (
+    <Row className="photo-div">
+      <Col>
+        <Image
+          className="photo-img"
+          preview={false}
+          key={`photo-${key}`}
+          src={src}
+        />
+        <h2 style={{ marginBottom: "3em", color: "#fff" }}>this is an h2</h2>
+      </Col>
+    </Row>
   );
 };
 
