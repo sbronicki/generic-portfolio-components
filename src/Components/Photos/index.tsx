@@ -81,7 +81,7 @@ const PhotoDiv = ({ index, src, setVisible }: PhotoDivProps) => {
     <div className="photo-div">
       <Image
         onClick={() => setVisible(true)}
-        preview={{ visible: false }}
+        preview={{ visible: false, mask: <></> }}
         className="photo-img"
         key={`photo-${index}`}
         src={src}
