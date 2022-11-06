@@ -5,14 +5,14 @@ interface MobileContextInterface {
   windowWidth: number;
 }
 
-export const MobileContext = createContext<MobileContextInterface | null>(null);
+export const MobileContext = createContext<any>(undefined);
 
 export const MobileProvider = ({ children }: any) => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [isMobile, setIsMobile] = useState<boolean>(windowWidth < 768);
 
-  const onResize = ({ e }: any) => {
-    setWindowWidth(e.target.innerWidth);
+  const onResize = ({ target }: any) => {
+    setWindowWidth(target.innerWidth);
   };
   useEffect(() => {
     window.addEventListener("resize", onResize);

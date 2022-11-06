@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { Menu } from "antd";
+import { MobileContext } from "../../Context/MobileContext";
 
 interface NavItem {
   name: string;
@@ -16,6 +17,7 @@ interface NavProps {
 
 const Nav = ({ items, color, label, icon }: NavProps) => {
   const [top, setTop] = useState(true);
+  const { isMobile } = useContext(MobileContext);
 
   useEffect(() => {
     const onScroll = () =>
@@ -24,6 +26,7 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, [top]);
+
   return (
     <Menu
       disabledOverflow={true}
@@ -34,9 +37,9 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
         width: "100%",
         backgroundColor: color.background + " !important", // this gets ignored for some reason
         color: color.text,
-        display: "flex",
         justifyContent: label || icon ? "space-between" : "center",
         fontSize: "18px",
+        display: isMobile && !top ? "none" : "flex",
       }}
     >
       {(label || icon) && (
@@ -46,15 +49,17 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
           </Menu.Item>
         </span>
       )}
-      <span style={{ display: "flex" }}>
-        {items.map((item) => (
-          <Menu.Item className="nav-item" key={item.name} icon={item.icon}>
-            <a href={item.to}>
-              <span style={{ color: color.text }}>{item.name}</span>
-            </a>
-          </Menu.Item>
-        ))}
-      </span>
+      {!isMobile && (
+        <span style={{ display: "flex" }}>
+          {items.map((item) => (
+            <Menu.Item className="nav-item" key={item.name} icon={item.icon}>
+              <a href={item.to}>
+                <span style={{ color: color.text }}>{item.name}</span>
+              </a>
+            </Menu.Item>
+          ))}
+        </span>
+      )}
     </Menu>
   );
 };
