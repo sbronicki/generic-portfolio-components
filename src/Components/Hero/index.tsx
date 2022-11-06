@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 
-import { Image, Layout, Row, Col } from "antd";
+import { Layout, Row, Col } from "antd";
+import { MobileContext } from "../../Context/MobileContext";
 const { Content } = Layout;
 
 interface HeroProps {
@@ -9,26 +10,27 @@ interface HeroProps {
 }
 
 const Hero = ({ centerCenter, rightBottom }: HeroProps) => {
+  const { isMobile } = useContext(MobileContext);
   return (
     <Layout id="home" className="hero">
       <Content>
         <Row style={{ height: "30vh" }}>
-          <Col className="hero-col" span={8}></Col>
-          <Col className="hero-col" span={8}></Col>
-          <Col className="hero-col" span={8}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 8}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 8}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 8}></Col>
         </Row>
         <Row style={{ height: "30vh" }}>
-          <Col className="hero-col" span={8}></Col>
-          <Col className="hero-col" span={8}>
-            {centerCenter && centerCenter}
+          <Col className="hero-col" span={isMobile ? 24 : 8}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 8}>
+            {centerCenter}
           </Col>
-          <Col className="hero-col" span={8}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 8}></Col>
         </Row>
         <Row style={{ height: "30vh" }}>
-          <Col className="hero-col" span={8}></Col>
-          <Col className="hero-col" span={8}></Col>
-          <Col className="hero-col" span={8}>
-            {rightBottom && rightBottom}
+          <Col className="hero-col" span={isMobile ? 24 : 6}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 6}></Col>
+          <Col className="hero-col" span={isMobile ? 24 : 11}>
+            {rightBottom}
           </Col>
         </Row>
       </Content>

@@ -122,8 +122,15 @@ const appConfig: config = {
   },
   hero: {
     rightBottom: (
-      <Title level={2} style={{ color: "#fff" }}>
-        Contact Email: potterjanthony@gmail.com
+      <Title
+        level={3}
+        style={{
+          color: "#fff",
+        }}
+      >
+        <span style={{ textAlign: "center" }}>
+          Contact Email: <br /> potterjanthony@gmail.com
+        </span>
       </Title>
     ),
   },
