@@ -15,7 +15,7 @@ code {
 }
 .nav-hero-container {
   /* config */
-  background: url("./Media/img/TempHero.jpg") no-repeat center top/cover;
+  background: url("./Media/img/Hero.jpg") no-repeat center top/cover;
   background-size: cover;
   height: 100vh;
   position: relative;
