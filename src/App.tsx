@@ -243,7 +243,7 @@ const App: React.FC = () => {
         </Header>
         <Content>
           {appConfig.section?.length &&
-            appConfig.section.map((sect) => (
+            appConfig.section.map((sect, i) => (
               <Section
                 img={sect.img}
                 title={sect.title}
@@ -251,6 +251,7 @@ const App: React.FC = () => {
                 icon={sect.icon}
                 message={sect.message}
                 navId={sect.navId}
+                key={`section-${i}`}
               />
             ))}
           {appConfig.photos && (
