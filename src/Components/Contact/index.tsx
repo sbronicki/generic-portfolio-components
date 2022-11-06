@@ -1,10 +1,11 @@
 import { Button, Form, Input } from "antd";
 import { FormInstance } from "antd/es/form/Form";
 import TextArea from "antd/lib/input/TextArea";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Typography } from "antd";
 
 import Section from "../Section";
+import { MobileContext } from "../../Context/MobileContext";
 
 const { Text } = Typography;
 interface ContactProps {
@@ -47,6 +48,8 @@ const ContactForm = ({ fields }: FormProps) => {
     setFinished(true);
   };
 
+  const { isMobile } = useContext(MobileContext);
+
   return (
     <Form
       ref={formRef}
@@ -72,7 +75,7 @@ const ContactForm = ({ fields }: FormProps) => {
           </Form.Item>
         );
       })}
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item wrapperCol={isMobile ? {} : { offset: 8, span: 16 }}>
         <Button
           className="button"
           disabled={finished}
@@ -86,7 +89,7 @@ const ContactForm = ({ fields }: FormProps) => {
         </Button>
       </Form.Item>
       {finished && (
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={isMobile ? {} : { offset: 8, span: 16 }}>
           {<Text>Thanks for reaching out!</Text>}
         </Form.Item>
       )}

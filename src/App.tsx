@@ -44,7 +44,10 @@ const TempContact = require("./Media/img/TempContact.jpg");
 // Duplicated key 'undefined' used in Menu nav error
 // image preview starts on img you clicked
 // mobile styles
+// reels smaller screen text overlap video
+// contact smaller screen label overlap input
 // move style colors from css to config
+// section hide img on mobile option
 
 interface config {
   // general: {

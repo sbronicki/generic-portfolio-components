@@ -56,9 +56,10 @@ const Section = ({
               : "3.5em 1em 3.5em 5em"
             : "5em 11em",
           textAlign: isMobile ? "center" : "start",
+          width: isMobile ? "100%" : "",
         }}
         span={isMobile ? 24 : img ? 11 : 24}
-        offset={img ? 1 : 0}
+        offset={isMobile ? 0 : img ? 1 : 0}
       >
         <Title
           style={{ textAlign: isMobile ? "center" : "start" }}

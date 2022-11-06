@@ -38,8 +38,8 @@ const VideoSection = ({ reels }: ReelsProps) => {
           >
             <Col span={isMobile ? "24" : "16"}>
               <ReactPlayer
-                width={isMobile ? "438px" : "640px"}
-                height={isMobile ? "246px" : "360px"}
+                width={isMobile ? "320px" : "640px"}
+                height={isMobile ? "180px" : "360px"}
                 url={reel.link}
                 controls
                 light
