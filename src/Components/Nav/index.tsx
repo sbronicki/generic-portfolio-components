@@ -15,11 +15,11 @@ interface NavProps {
 }
 
 const Nav = ({ items, color, label, icon }: NavProps) => {
-  const [top, setTop] = useState("top");
+  const [top, setTop] = useState(true);
 
   useEffect(() => {
     const onScroll = () =>
-      window.pageYOffset > 200 ? setTop("") : setTop("top");
+      window.pageYOffset > 200 ? setTop(false) : setTop(true);
 
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,7 +28,7 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
     <Menu
       disabledOverflow={true}
       defaultSelectedKeys={[items[0].to]}
-      className={`nav ${top}`}
+      className={`nav ${top ? "top" : ""}`}
       mode="horizontal"
       style={{
         width: "100%",
