@@ -35,7 +35,7 @@ const Section = ({
           span={12}
         >
           <Image
-            style={{ maxHeight: "750px" }}
+            style={{ maxHeight: "600px" }}
             src={img?.img}
             preview={false}
           />

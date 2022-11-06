@@ -40,7 +40,7 @@ const Photos = ({ title, description, photos }: PhotoProps) => {
 
 const PhotoSection = ({ batches }: PhotoSectionProps) => {
   return (
-    <Collapse accordion defaultActiveKey={["panel-0"]}>
+    <Collapse defaultActiveKey={["panel-0"]}>
       {batches.map((batch, i) => {
         return (
           <Panel header={batch.panelHeader} key={`panel-${i}`}>
