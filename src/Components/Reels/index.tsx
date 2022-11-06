@@ -27,7 +27,7 @@ const VideoSection = ({ reels }: ReelsProps) => {
     <>
       {reels.map((reel: Reel, i) => {
         return (
-          <Row style={{ padding: "2.5em" }}>
+          <Row style={{ padding: "2.5em" }} key={`reel-${i}`}>
             <Col span={16}>
               <ReactPlayer url={reel.link} controls light pip />
             </Col>

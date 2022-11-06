@@ -139,15 +139,7 @@ const appConfig: config = {
         panelHeader: "Photos by Person #1",
         description: "Short description of the photos in this batch",
         default: true,
-        photos: [
-          { img: TempAbout },
-          { img: TempAuthor },
-          { img: TempContact },
-          { img: TempContact },
-          { img: TempContact },
-          { img: TempContact },
-          { img: TempContact },
-        ],
+        photos: [{ img: TempAbout }, { img: TempAuthor }, { img: TempContact }],
       },
       {
         panelHeader: "Photos by Person #2",

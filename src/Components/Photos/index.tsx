@@ -23,7 +23,7 @@ interface PhotoSectionProps {
 }
 interface PhotoDivProps {
   src: string;
-  key: number;
+  index: number;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -43,8 +43,8 @@ const PhotoSection = ({ batches }: PhotoSectionProps) => {
     <Collapse accordion defaultActiveKey={["batch-0"]}>
       {batches.map((batch, i) => {
         return (
-          <Panel header={batch.panelHeader} key={`batch-${i}`}>
-            <BatchContainer photos={batch.photos} />
+          <Panel header={batch.panelHeader} key={`panel-${i}`}>
+            <BatchContainer photos={batch.photos} key={`batch-${i}`} />
           </Panel>
         );
       })}
@@ -59,7 +59,7 @@ const BatchContainer = ({ photos }: Batch) => {
       {photos.map((photo, i) => {
         return (
           <Col span={6}>
-            <PhotoDiv key={i} src={photo.img} setVisible={setVisible} />
+            <PhotoDiv index={i} src={photo.img} setVisible={setVisible} />
           </Col>
         );
       })}
@@ -68,7 +68,7 @@ const BatchContainer = ({ photos }: Batch) => {
           preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}
         >
           {photos.map((photo, i) => {
-            return <Image src={photo.img} />;
+            return <Image src={photo.img} key={`batch-img-${i}`} />;
           })}
         </Image.PreviewGroup>
       </Col>
@@ -76,14 +76,14 @@ const BatchContainer = ({ photos }: Batch) => {
   );
 };
 
-const PhotoDiv = ({ key, src, setVisible }: PhotoDivProps) => {
+const PhotoDiv = ({ index, src, setVisible }: PhotoDivProps) => {
   return (
     <div className="photo-div">
       <Image
         onClick={() => setVisible(true)}
         preview={{ visible: false }}
         className="photo-img"
-        key={`photo-${key}`}
+        key={`photo-${index}`}
         src={src}
       />
     </div>
