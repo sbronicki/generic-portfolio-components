@@ -1,5 +1,6 @@
 import { Carousel, Collapse, Image, Row, Col } from "antd";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { MobileContext } from "../../Context/MobileContext";
 import Section from "../Section";
 
 const { Panel } = Collapse;
@@ -58,11 +59,12 @@ const PhotoSection = ({ batches }: PhotoSectionProps) => {
 
 const BatchContainer = ({ photos }: Batch) => {
   const [visible, setVisible] = useState(false);
+  const { isMobile } = useContext(MobileContext);
   return (
     <Row className="batch-container">
       {photos.map((photo, i) => {
         return (
-          <Col span={6}>
+          <Col span={isMobile ? 24 : 6}>
             <PhotoDiv index={i} src={photo.img} setVisible={setVisible} />
           </Col>
         );
