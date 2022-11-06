@@ -1,5 +1,5 @@
 import { Carousel, Collapse, Image, Row, Col } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import Section from "../Section";
 
 const { Panel } = Collapse;
@@ -21,10 +21,10 @@ interface Photo {
 interface PhotoSectionProps {
   batches: Batch[];
 }
-
 interface PhotoDivProps {
   src: string;
   key: number;
+  setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Photos = ({ title, description, photos }: PhotoProps) => {
@@ -53,32 +53,40 @@ const PhotoSection = ({ batches }: PhotoSectionProps) => {
 };
 
 const BatchContainer = ({ photos }: Batch) => {
+  const [visible, setVisible] = useState(false);
   return (
     <Row className="batch-container">
       {photos.map((photo, i) => {
         return (
-          <Col>
-            <PhotoDiv key={i} src={photo.img} />
+          <Col span={6}>
+            <PhotoDiv key={i} src={photo.img} setVisible={setVisible} />
           </Col>
         );
       })}
+      <Col style={{ display: "none" }}>
+        <Image.PreviewGroup
+          preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}
+        >
+          {photos.map((photo, i) => {
+            return <Image src={photo.img} />;
+          })}
+        </Image.PreviewGroup>
+      </Col>
     </Row>
   );
 };
 
-const PhotoDiv = ({ key, src }: PhotoDivProps) => {
+const PhotoDiv = ({ key, src, setVisible }: PhotoDivProps) => {
   return (
-    <Row className="photo-div">
-      <Col>
-        <Image
-          className="photo-img"
-          preview={false}
-          key={`photo-${key}`}
-          src={src}
-        />
-        <h2 style={{ marginBottom: "3em", color: "#fff" }}>this is an h2</h2>
-      </Col>
-    </Row>
+    <div className="photo-div">
+      <Image
+        onClick={() => setVisible(true)}
+        preview={{ visible: false }}
+        className="photo-img"
+        key={`photo-${key}`}
+        src={src}
+      />
+    </div>
   );
 };
 

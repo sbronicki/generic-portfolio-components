@@ -52,8 +52,9 @@ const Section = ({
         span={img ? 12 : 24}
       >
         <Title level={4}>
-          {icon} {title} {message}
+          {icon} {title}
         </Title>
+        <Text>{message}</Text>
         {(icon || title || message) && <Divider />}
         <Text>{content}</Text>
       </Col>

@@ -66,10 +66,12 @@ code {
   background-color: black;
 }
 .photo-div {
+  display: flex;
   justify-content: center;
+  padding: 15px;
 }
 .photo-img {
-  height: 160px;
+  height: 250px;
   color: #fff;
   line-height: 160px;
   text-align: center;
