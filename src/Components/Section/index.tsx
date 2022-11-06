@@ -49,7 +49,8 @@ const Section = ({
               : "3.5em 1em 3.5em 5em"
             : "5em 11em",
         }}
-        span={img ? 12 : 24}
+        span={img ? 11 : 24}
+        offset={img ? 1 : 0}
       >
         <Title level={4}>
           {icon} {title}
