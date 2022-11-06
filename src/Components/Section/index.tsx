@@ -68,7 +68,7 @@ const Section = ({
         </Title>
         <Text>{message}</Text>
         {(icon || title || message) && <Divider />}
-        <Text>{content}</Text>
+        {typeof content === "string" ? <Text>{content}</Text> : content}
       </Col>
       <Divider />
     </Row>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Section from "../Section";
 import ReactPlayer from "react-player";
 import { Col, Row, Typography } from "antd";
+import { MobileContext } from "../../Context/MobileContext";
 
 const { Text, Title } = Typography;
 
@@ -23,15 +24,32 @@ const Reels = ({ title, reels }: ReelsProps) => {
 export default Reels;
 
 const VideoSection = ({ reels }: ReelsProps) => {
+  const { isMobile } = useContext(MobileContext);
   return (
     <>
       {reels.map((reel: Reel, i) => {
         return (
-          <Row style={{ padding: "2.5em" }} key={`reel-${i}`}>
-            <Col span={16}>
-              <ReactPlayer url={reel.link} controls light pip />
+          <Row
+            style={{
+              padding: isMobile ? ".25em" : "2.5em",
+              flexDirection: isMobile ? "column-reverse" : "row",
+            }}
+            key={`reel-${i}`}
+          >
+            <Col span={isMobile ? "24" : "16"}>
+              <ReactPlayer
+                width={isMobile ? "438px" : "640px"}
+                height={isMobile ? "246px" : "360px"}
+                url={reel.link}
+                controls
+                light
+                pip
+              />
             </Col>
-            <Col span={8} style={{ paddingTop: "2em" }}>
+            <Col
+              span={isMobile ? "24" : "8"}
+              style={isMobile ? { padding: "1.5em 0" } : { paddingTop: "2em" }}
+            >
               <Title level={3}>{reel.title}</Title>
               <Text>{reel.description}</Text>
             </Col>
