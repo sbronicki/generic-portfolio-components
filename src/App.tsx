@@ -36,6 +36,18 @@ const TempActor = require("./Media/img/TempActor.jpg");
 const TempAuthor = require("./Media/img/TempAuthor.jpg");
 const TempContact = require("./Media/img/TempContact.jpg");
 
+// modeling after ajp site for development
+// css exceptions so far: hero img, nav item bg color, nav label/icon color
+// search("config") in css
+
+// todo:
+// Duplicated key 'undefined' used in Menu nav error
+// image preview starts on img you clicked
+// reels description wrap
+// mobile styles
+// increase font
+// move style colors from css to config
+
 interface config {
   // general: {
   //   theme: "";
@@ -82,10 +94,6 @@ interface config {
   };
 }
 
-// modeling after ajp site for development
-// css exceptions so far: hero img, nav item bg color, nav label/icon color
-// search("config") in css
-// todo: mobile styling, photos, reels
 const appConfig: config = {
   nav: {
     items: [
@@ -117,7 +125,7 @@ const appConfig: config = {
   hero: {
     rightBottom: (
       <Title level={4} style={{ color: "#fff" }}>
-        Contact Email: example@email.site
+        Contact Email: potterjanthony@gmail.com
       </Title>
     ),
   },
@@ -178,7 +186,8 @@ const appConfig: config = {
       {
         title: "Golden State",
         link: "https://www.youtube.com/watch?v=NH6_wWrTlnQ",
-        description: '"They say gold has a strange effect on a man.."',
+        description:
+          '"They say gold has a strange effect on a man..gold has a strange effect on a man..gold has a strange effect on a man..gold has a strange effect on a man..gold has a strange effect on a man.. gold has a strange effect on a man..gold has a strange effect on a man..gold has a strange effect on a man.. gold has a strange effect on a man.. gold has a strange effect on a man.."',
       },
       {
         title: "Silent Hellp",

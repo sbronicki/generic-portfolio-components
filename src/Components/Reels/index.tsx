@@ -31,7 +31,7 @@ const VideoSection = ({ reels }: ReelsProps) => {
             <Col span={16}>
               <ReactPlayer url={reel.link} controls light pip />
             </Col>
-            <Col style={{ paddingTop: "2em" }}>
+            <Col span={8} style={{ paddingTop: "2em" }}>
               <Title level={3}>{reel.title}</Title>
               <Text>{reel.description}</Text>
             </Col>
