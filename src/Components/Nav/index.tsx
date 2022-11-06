@@ -36,6 +36,7 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
         color: color.text,
         display: "flex",
         justifyContent: label || icon ? "space-between" : "center",
+        fontSize: "18px",
       }}
     >
       {(label || icon) && (

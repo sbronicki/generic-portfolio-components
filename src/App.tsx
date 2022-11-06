@@ -45,7 +45,6 @@ const TempContact = require("./Media/img/TempContact.jpg");
 // image preview starts on img you clicked
 // reels description wrap
 // mobile styles
-// increase font
 // move style colors from css to config
 
 interface config {
@@ -124,7 +123,7 @@ const appConfig: config = {
   },
   hero: {
     rightBottom: (
-      <Title level={4} style={{ color: "#fff" }}>
+      <Title level={2} style={{ color: "#fff" }}>
         Contact Email: potterjanthony@gmail.com
       </Title>
     ),

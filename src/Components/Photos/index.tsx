@@ -43,7 +43,11 @@ const PhotoSection = ({ batches }: PhotoSectionProps) => {
     <Collapse defaultActiveKey={["panel-0"]}>
       {batches.map((batch, i) => {
         return (
-          <Panel header={batch.panelHeader} key={`panel-${i}`}>
+          <Panel
+            style={{ fontSize: "18px" }}
+            header={batch.panelHeader}
+            key={`panel-${i}`}
+          >
             <BatchContainer photos={batch.photos} key={`batch-${i}`} />
           </Panel>
         );

@@ -52,7 +52,7 @@ const Section = ({
         span={img ? 11 : 24}
         offset={img ? 1 : 0}
       >
-        <Title level={4}>
+        <Title level={navId === "contact" ? 2 : 1}>
           {icon} {title}
         </Title>
         <Text>{message}</Text>
