@@ -56,6 +56,7 @@ const ContactForm = ({ fields }: FormProps) => {
       wrapperCol={{ span: 16 }}
       labelCol={{ span: 3, offset: 0 }}
       onFinish={onFinish}
+      name="contact"
     >
       {fields.map((field, i) => {
         return (
