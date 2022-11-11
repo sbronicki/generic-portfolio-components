@@ -93,6 +93,7 @@ const ContactForm = ({ fields }: FormProps) => {
           {<Text>Thanks for reaching out!</Text>}
         </Form.Item>
       )}
+      <input type="hidden" name="form-name" value="contact" />
     </Form>
   );
 };

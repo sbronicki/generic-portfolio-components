@@ -103,12 +103,13 @@ const Blue3 = require("./Media/img/blue-3.JPG");
 // todo:
 // Duplicated key 'undefined' used in Menu nav error
 // image preview starts on img you clicked
-// mobile styles
 // reels smaller screen text overlap video
 // contact smaller screen label overlap input
 // move style colors from css to config
+// photo stretching on smaller screens
 // section hide img on mobile option
-
+// add photo shoot neo pics
+// hard code form => https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 interface config {
   // general: {
   //   theme: "";
