@@ -43,9 +43,29 @@ const ContactForm = ({ fields }: FormProps) => {
   const [finished, setFinished] = useState(false);
   const formRef = React.createRef<FormInstance>();
   const onClear = () => formRef.current!.resetFields();
-  const onFinish = (values: string) => {
-    onClear();
-    setFinished(true);
+
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const onFinish = (values: object) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...values }),
+    })
+      .then((res) => {
+        console.log({ res });
+        onClear();
+        setFinished(true);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   const { isMobile } = useContext(MobileContext);
