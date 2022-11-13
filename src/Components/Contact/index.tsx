@@ -79,8 +79,8 @@ const ContactForm = ({ fields }: FormProps) => {
   return (
     <Form
       ref={formRef}
-      wrapperCol={{ span: 16 }}
-      labelCol={{ span: 3, offset: 0 }}
+      wrapperCol={{ span: isMobile ? 18 : 15, offset: 1 }}
+      labelCol={{ span: isMobile ? 4 : 3 }}
       onFinish={onFinish}
       name="contact"
     >

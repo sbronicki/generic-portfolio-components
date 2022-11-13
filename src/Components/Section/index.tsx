@@ -31,7 +31,7 @@ const Section = ({
       style={{
         flexDirection: isMobile ? "column" : img?.left ? "row" : "row-reverse",
       }}
-      align={navId === "contact" ? "top" : "middle"}
+      align="middle"
       justify="center"
     >
       {img && (
