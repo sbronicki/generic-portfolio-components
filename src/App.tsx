@@ -101,7 +101,6 @@ const Blue3 = require("./Media/img/blue-3.JPG");
 // search("config") in css
 
 // todo:
-// minify pics
 // photo stretching on smaller screens
 // reels smaller screen text overlap video
 // contact smaller screen label overlap input
