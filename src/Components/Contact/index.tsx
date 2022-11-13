@@ -44,33 +44,28 @@ const ContactForm = ({ fields }: FormProps) => {
   const formRef = React.createRef<FormInstance>();
   const onClear = () => formRef.current!.resetFields();
 
-  // const encode = (data: any) => {
-  //   return Object.keys(data)
-  //     .map(
-  //       (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-  //     )
-  //     .join("&");
-  // };
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
 
-  // const onFinish = (values: object) => {
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: encode({ "form-name": "contact", ...values }),
-  //   })
-  //     .then((res) => {
-  //       console.log({ res });
-  //       onClear();
-  //       setFinished(true);
-  //     })
-  //     .catch((error) => {
-  //       alert(error);
-  //     });
-  // };
-
-  const onFinish = () => {
-    onClear();
-    setFinished(true);
+  const onFinish = (values: object) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...values }),
+    })
+      .then((res) => {
+        console.log({ res });
+        onClear();
+        setFinished(true);
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   const { isMobile } = useContext(MobileContext);
@@ -94,9 +89,13 @@ const ContactForm = ({ fields }: FormProps) => {
             key={field.label}
           >
             {field.inputType === "area" ? (
-              <TextArea rows={5} maxLength={300} />
+              <TextArea
+                name={`contact_${field.label}`}
+                rows={5}
+                maxLength={300}
+              />
             ) : (
-              <Input maxLength={50} />
+              <Input name={`contact_${field.label}`} maxLength={50} />
             )}
           </Form.Item>
         );
