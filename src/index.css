@@ -66,6 +66,9 @@ code {
 .carousel {
   background-color: black;
 }
+.batch-container {
+  overflow: hidden;
+}
 .photo-div {
   display: flex;
   justify-content: center;
@@ -73,7 +76,7 @@ code {
   min-width: 200px;
 }
 .photo-img {
-  height: 300px;
+  max-height: 350px;
   color: #fff;
   line-height: 160px;
   text-align: center;
