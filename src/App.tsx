@@ -121,7 +121,6 @@ const Neo21 = require("./Media/img/neo-21.jpg");
 
 // todo:
 // photo stretching on smaller screens
-// reels smaller screen text overlap video
 // contact smaller screen label overlap input
 // add photo shoot neo pics
 

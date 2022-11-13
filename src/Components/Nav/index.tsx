@@ -17,7 +17,7 @@ interface NavProps {
 
 const Nav = ({ items, color, label, icon }: NavProps) => {
   const [top, setTop] = useState(true);
-  const { isMobile } = useContext(MobileContext);
+  const { isMobile, windowWidth } = useContext(MobileContext);
 
   useEffect(() => {
     const onScroll = () =>
@@ -49,7 +49,7 @@ const Nav = ({ items, color, label, icon }: NavProps) => {
           </Menu.Item>
         </span>
       )}
-      {!isMobile && (
+      {!(windowWidth < 768) && (
         <span style={{ display: "flex" }}>
           {items.map((item) => (
             <Menu.Item className="nav-item" key={item.name} icon={item.icon}>
