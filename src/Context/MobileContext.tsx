@@ -9,7 +9,7 @@ export const MobileContext = createContext<any>(undefined);
 
 export const MobileProvider = ({ children }: any) => {
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-  const [isMobile, setIsMobile] = useState<boolean>(windowWidth < 768);
+  const [isMobile, setIsMobile] = useState<boolean>(windowWidth < 1000);
 
   const onResize = ({ target }: any) => {
     setWindowWidth(target.innerWidth);
@@ -18,7 +18,7 @@ export const MobileProvider = ({ children }: any) => {
     window.addEventListener("resize", onResize);
   }, []);
   useEffect(() => {
-    const _isMobile = windowWidth < 768;
+    const _isMobile = windowWidth < 1000;
     if ((_isMobile && !isMobile) || (!_isMobile && isMobile)) {
       setIsMobile(_isMobile);
     }

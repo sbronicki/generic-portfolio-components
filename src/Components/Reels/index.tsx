@@ -31,15 +31,22 @@ const VideoSection = ({ reels }: ReelsProps) => {
         return (
           <Row
             style={{
-              padding: isMobile ? ".25em" : "2.5em",
+              padding: isMobile ? ".25em" : "2.5em .5em",
               flexDirection: isMobile ? "column-reverse" : "row",
             }}
             key={`reel-${i}`}
           >
-            <Col span={isMobile ? "24" : "16"}>
+            <Col
+              style={{ display: "flex", justifyContent: "center" }}
+              span={isMobile ? "24" : "12"}
+            >
               <ReactPlayer
-                width={isMobile ? "320px" : "640px"}
-                height={isMobile ? "180px" : "360px"}
+                style={
+                  isMobile
+                    ? { maxHeight: "180px", maxWidth: "320px" }
+                    : { maxHeight: "360px", maxWidth: "640px" }
+                }
+                width="100%"
                 url={reel.link}
                 controls
                 light
@@ -47,8 +54,14 @@ const VideoSection = ({ reels }: ReelsProps) => {
               />
             </Col>
             <Col
-              span={isMobile ? "24" : "8"}
-              style={isMobile ? { padding: "1.5em 0" } : { paddingTop: "2em" }}
+              span={isMobile ? "24" : "12"}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                padding: isMobile ? "1.5em" : "2em 0em 2em 1em",
+              }}
             >
               <Title level={3}>{reel.title}</Title>
               <Text>{reel.description}</Text>
