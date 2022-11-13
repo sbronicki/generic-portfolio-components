@@ -101,14 +101,16 @@ const Blue3 = require("./Media/img/blue-3.JPG");
 // search("config") in css
 
 // todo:
-// Duplicated key 'undefined' used in Menu nav error
-// image preview starts on img you clicked
+// minify pics
+// photo stretching on smaller screens
 // reels smaller screen text overlap video
 // contact smaller screen label overlap input
-// move style colors from css to config
-// photo stretching on smaller screens
-// section hide img on mobile option
 // add photo shoot neo pics
+
+// Duplicated key 'undefined' used in Menu nav error
+// image preview starts on img you clicked
+// move style colors from css to config
+// section hide img on mobile option
 interface config {
   // general: {
   //   theme: "";
@@ -224,6 +226,7 @@ const appConfig: config = {
           { img: Arbor8 },
           { img: Arbor9 },
           { img: Arbor2 },
+          { img: Arbor1 },
         ],
       },
       {
