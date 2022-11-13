@@ -95,6 +95,25 @@ const Blue0 = require("./Media/img/blue-0.jpg");
 const Blue1 = require("./Media/img/blue-1.jpg");
 const Blue2 = require("./Media/img/blue-2.jpg");
 const Blue3 = require("./Media/img/blue-3.jpg");
+const Neo0 = require("./Media/img/neo-0.jpg");
+const Neo1 = require("./Media/img/neo-1.jpg");
+const Neo2 = require("./Media/img/neo-2.jpg");
+const Neo3 = require("./Media/img/neo-3.jpg");
+const Neo4 = require("./Media/img/neo-4.jpg");
+const Neo5 = require("./Media/img/neo-5.jpg");
+const Neo7 = require("./Media/img/neo-7.jpg");
+const Neo8 = require("./Media/img/neo-8.jpg");
+const Neo9 = require("./Media/img/neo-9.jpg");
+const Neo10 = require("./Media/img/neo-10.jpg");
+const Neo11 = require("./Media/img/neo-11.jpg");
+const Neo13 = require("./Media/img/neo-13.jpg");
+const Neo14 = require("./Media/img/neo-14.jpg");
+const Neo15 = require("./Media/img/neo-15.jpg");
+const Neo16 = require("./Media/img/neo-16.jpg");
+const Neo17 = require("./Media/img/neo-17.jpg");
+const Neo18 = require("./Media/img/neo-18.jpg");
+const Neo19 = require("./Media/img/neo-19.jpg");
+const Neo20 = require("./Media/img/neo-20.jpg");
 
 // modeling after ajp site for development
 // css exceptions so far: hero img, nav item bg color, nav label/icon color
@@ -284,7 +303,27 @@ const appConfig: config = {
       },
       {
         panelHeader: "Photo Shoot Neo",
-        photos: [],
+        photos: [
+          { img: Neo0 },
+          { img: Neo1 },
+          { img: Neo2 },
+          { img: Neo3 },
+          { img: Neo4 },
+          { img: Neo5 },
+          { img: Neo7 },
+          { img: Neo8 },
+          { img: Neo9 },
+          { img: Neo10 },
+          { img: Neo11 },
+          { img: Neo13 },
+          { img: Neo14 },
+          { img: Neo15 },
+          { img: Neo16 },
+          { img: Neo17 },
+          { img: Neo18 },
+          { img: Neo19 },
+          { img: Neo20 },
+        ],
       },
       {
         panelHeader: "Photo Shoot Blue",
