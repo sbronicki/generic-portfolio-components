@@ -44,28 +44,33 @@ const ContactForm = ({ fields }: FormProps) => {
   const formRef = React.createRef<FormInstance>();
   const onClear = () => formRef.current!.resetFields();
 
-  const encode = (data: any) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
-  };
+  // const encode = (data: any) => {
+  //   return Object.keys(data)
+  //     .map(
+  //       (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+  //     )
+  //     .join("&");
+  // };
 
-  const onFinish = (values: object) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values }),
-    })
-      .then((res) => {
-        console.log({ res });
-        onClear();
-        setFinished(true);
-      })
-      .catch((error) => {
-        alert(error);
-      });
+  // const onFinish = (values: object) => {
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: encode({ "form-name": "contact", ...values }),
+  //   })
+  //     .then((res) => {
+  //       console.log({ res });
+  //       onClear();
+  //       setFinished(true);
+  //     })
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // };
+
+  const onFinish = () => {
+    onClear();
+    setFinished(true);
   };
 
   const { isMobile } = useContext(MobileContext);
@@ -114,7 +119,6 @@ const ContactForm = ({ fields }: FormProps) => {
           {<Text>Thanks for reaching out!</Text>}
         </Form.Item>
       )}
-      <input type="hidden" name="form-name" value="contact" />
     </Form>
   );
 };
