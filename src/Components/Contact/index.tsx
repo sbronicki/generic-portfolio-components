@@ -60,7 +60,6 @@ const ContactForm = ({ fields }: FormProps) => {
       (sendObj as any)[newKey] = (values as any)[key];
     });
 
-    console.log({ sendObj });
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
