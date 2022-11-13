@@ -70,6 +70,7 @@ code {
   display: flex;
   justify-content: center;
   padding: 15px;
+  min-width: 200px;
 }
 .photo-img {
   height: 300px;
