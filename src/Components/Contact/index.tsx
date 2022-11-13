@@ -53,10 +53,18 @@ const ContactForm = ({ fields }: FormProps) => {
   };
 
   const onFinish = (values: object) => {
+    const sendObj = {};
+    let newKey = "";
+    Object.keys(values).forEach((key, i) => {
+      newKey = "contact_" + key;
+      (sendObj as any)[newKey] = (values as any)[key];
+    });
+
+    console.log({ sendObj });
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values }),
+      body: encode({ "form-name": "contact", ...sendObj }),
     })
       .then((res) => {
         console.log({ res });
