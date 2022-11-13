@@ -115,7 +115,6 @@ const Neo18 = require("./Media/img/neo-18.jpg");
 const Neo19 = require("./Media/img/neo-19.jpg");
 const Neo20 = require("./Media/img/neo-20.jpg");
 const Neo21 = require("./Media/img/neo-21.jpg");
-console.log("oops");
 // modeling after ajp site for development
 // css exceptions so far: hero img, nav item bg color, nav label/icon color
 // search("config") in css

@@ -66,7 +66,6 @@ const ContactForm = ({ fields }: FormProps) => {
       body: encode({ "form-name": "contact", ...sendObj }),
     })
       .then((res) => {
-        console.log({ res });
         onClear();
         setFinished(true);
       })
