@@ -82,18 +82,6 @@ const appConfig: config = {
         to: "#home",
       },
       {
-        name: "About",
-        to: "#about",
-      },
-      {
-        name: "Skills",
-        to: "#skills",
-      },
-      {
-        name: "Education",
-        to: "#education",
-      },
-      {
         name: "Contact",
         to: "#contact",
       },
@@ -116,7 +104,6 @@ const appConfig: config = {
       </Title>
     ),
   },
-  section: [],
   contact: {
     img: {
       img: ContactImg,
