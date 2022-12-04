@@ -34,10 +34,6 @@ const ContactImg = require("./Media/img/Contact.jpg");
 // move style colors from css to config
 // section hide img on mobile option
 interface config {
-  // general: {
-  //   theme: "";
-  //   // order?
-  // };
   nav: {
     label?: string;
     icon?: React.ReactNode;
@@ -50,7 +46,6 @@ interface config {
   hero: {
     centerCenter?: React.ReactNode | string;
     rightBottom?: React.ReactNode | string;
-    // grid etc takes in text, img or vid
   };
   section?: SectionInterface[];
   photos?: {
