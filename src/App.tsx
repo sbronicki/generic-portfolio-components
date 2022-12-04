@@ -162,31 +162,32 @@ const App: React.FC = () => {
           <Hero rightBottom={appConfig.hero.rightBottom} />
         </Header>
         <Content>
-          {appConfig.section?.length &&
-            appConfig.section.map((sect, i) => (
-              <Section
-                img={sect.img}
-                title={sect.title}
-                content={sect.content}
-                icon={sect.icon}
-                message={sect.message}
-                navId={sect.navId}
-                key={`section-${i}`}
-              />
-            ))}
-          {appConfig.photos && (
+          {appConfig.section?.length
+            ? appConfig.section.map((sect, i) => (
+                <Section
+                  img={sect.img}
+                  title={sect.title}
+                  content={sect.content}
+                  icon={sect.icon}
+                  message={sect.message}
+                  navId={sect.navId}
+                  key={`section-${i}`}
+                />
+              ))
+            : null}
+          {appConfig.photos ? (
             <Photos
               title={appConfig.photos.title}
               description={appConfig.photos.description}
               photos={appConfig.photos.photos}
             />
-          )}
-          {appConfig.reels && (
+          ) : null}
+          {appConfig.reels ? (
             <Reels
               title={appConfig.reels.title}
               reels={appConfig.reels.reels}
             />
-          )}
+          ) : null}
           <Contact
             title={appConfig.contact.title}
             icon={appConfig.contact.icon}
