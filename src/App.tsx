@@ -5,23 +5,10 @@ import Nav from "./Components/Nav";
 import Section from "./Components/Section";
 import FooterComponent from "./Components/Footer";
 
-import {
-  BookOutlined,
-  ContactsOutlined,
-  HomeOutlined,
-  InstagramOutlined,
-  UserOutlined,
-  VideoCameraAddOutlined,
-  VideoCameraOutlined,
-  YoutubeOutlined,
-} from "@ant-design/icons";
+import { ContactsOutlined } from "@ant-design/icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faImdb,
-  faYoutube,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 import { Layout, Typography } from "antd";
 import Contact from "./Components/Contact";
@@ -32,78 +19,8 @@ const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 // site images
-const AboutImg = require("./Media/img/About.jpg");
 const ContactImg = require("./Media/img/Contact.jpg");
 
-// photo images
-const DefaultBatch0 = require("./Media/img/white-shirt-0.jpg");
-const DefaultBatch1 = require("./Media/img/white-shirt-1.jpg");
-const DefaultBatch2 = require("./Media/img/white-shirt-2.jpg");
-const DefaultBatch3 = require("./Media/img/white-shirt-3.jpg");
-const DefaultBatch4 = require("./Media/img/white-shirt-4.jpg");
-const DefaultBatch6 = require("./Media/img/white-shirt-6.jpg");
-const DefaultBatch7 = require("./Media/img/white-shirt-7.jpg");
-const DefaultBatch8 = require("./Media/img/white-shirt-8.jpg");
-const DefaultBatch11 = require("./Media/img/white-shirt-11.jpg");
-const DefaultBatch12 = require("./Media/img/white-shirt-12.jpg");
-const DefaultBatch13 = require("./Media/img/white-shirt-13.jpg");
-const DefaultBatch14 = require("./Media/img/white-shirt-14.jpg");
-const DefaultBatch15 = require("./Media/img/white-shirt-15.jpg");
-const DefaultBatch16 = require("./Media/img/white-shirt-16.jpg");
-const DefaultBatch18 = require("./Media/img/white-shirt-18.jpg");
-const DefaultBatch20 = require("./Media/img/white-shirt-20.jpg");
-const SecondPanel0 = require("./Media/img/classy-0.jpg");
-const SecondPanel1 = require("./Media/img/classy-1.jpg");
-const SecondPanel2 = require("./Media/img/classy-2.jpg");
-const SecondPanel3 = require("./Media/img/classy-3.jpg");
-const SecondPanel4 = require("./Media/img/classy-4.jpg");
-const SecondPanel5 = require("./Media/img/classy-5.jpg");
-const SecondPanel6 = require("./Media/img/classy-6.jpg");
-const SecondPanel7 = require("./Media/img/classy-7.jpg");
-const SecondPanel8 = require("./Media/img/classy-8.jpg");
-const SecondPanel9 = require("./Media/img/classy-9.jpg");
-const SecondPanel10 = require("./Media/img/classy-10.jpg");
-const SecondPanel12 = require("./Media/img/classy-12.jpg");
-const SecondPanel13 = require("./Media/img/classy-13.jpg");
-const SecondPanel14 = require("./Media/img/classy-14.jpg");
-const SecondPanel15 = require("./Media/img/classy-15.jpg");
-const SecondPanel17 = require("./Media/img/classy-17.jpg");
-const SecondPanel18 = require("./Media/img/classy-18.jpg");
-const SecondPanel19 = require("./Media/img/classy-19.jpg");
-const SecondPanel20 = require("./Media/img/classy-20.jpg");
-const SecondPanel21 = require("./Media/img/classy-21.jpg");
-const SecondPanel22 = require("./Media/img/classy-22.jpg");
-const SecondPanel25 = require("./Media/img/classy-25.jpg");
-const SecondPanel26 = require("./Media/img/classy-26.jpg");
-const Arbor0 = require("./Media/img/arbor-0.jpg");
-const Arbor1 = require("./Media/img/arbor-1.jpg");
-const Arbor2 = require("./Media/img/arbor-2.jpg");
-const Arbor3 = require("./Media/img/arbor-3.jpg");
-const Arbor4 = require("./Media/img/arbor-4.jpg");
-const Arbor5 = require("./Media/img/arbor-5.jpg");
-const Arbor6 = require("./Media/img/arbor-6.jpg");
-const Arbor7 = require("./Media/img/arbor-7.jpg");
-const Arbor8 = require("./Media/img/arbor-8.jpg");
-const Arbor9 = require("./Media/img/arbor-9.jpg");
-const Arbor10 = require("./Media/img/arbor-10.jpg");
-const Blue0 = require("./Media/img/blue-0.jpg");
-const Blue1 = require("./Media/img/blue-1.jpg");
-const Blue2 = require("./Media/img/blue-2.jpg");
-const Blue3 = require("./Media/img/blue-3.jpg");
-const Neo0 = require("./Media/img/neo-0.jpg");
-const Neo1 = require("./Media/img/neo-1.jpg");
-const Neo7 = require("./Media/img/neo-7.jpg");
-const Neo8 = require("./Media/img/neo-8.jpg");
-const Neo9 = require("./Media/img/neo-9.jpg");
-const Neo10 = require("./Media/img/neo-10.jpg");
-const Neo11 = require("./Media/img/neo-11.jpg");
-const Neo13 = require("./Media/img/neo-13.jpg");
-const Neo14 = require("./Media/img/neo-14.jpg");
-const Neo17 = require("./Media/img/neo-17.jpg");
-const Neo18 = require("./Media/img/neo-18.jpg");
-const Neo19 = require("./Media/img/neo-19.jpg");
-const Neo21 = require("./Media/img/neo-21.jpg");
-// modeling after ajp site for development
 // css exceptions so far: hero img, nav item bg color, nav label/icon color
 // search("config") in css
 
@@ -174,21 +91,21 @@ const appConfig: config = {
         to: "#about",
       },
       {
-        name: "Photos",
-        to: "#photos",
+        name: "Skills",
+        to: "#skills",
       },
       {
-        name: "Reels",
-        to: "#reels",
+        name: "Education",
+        to: "#education",
       },
       {
         name: "Contact",
         to: "#contact",
       },
     ],
-    label: "Anthony Jan Potter",
+    label: "Generic Portfolio",
     // icon: <VideoCameraAddOutlined />,
-    color: { background: "ignored? set in css for now", text: "#fff" },
+    color: { background: "", text: "#fff" },
   },
   hero: {
     rightBottom: (
@@ -199,163 +116,12 @@ const appConfig: config = {
         }}
       >
         <span style={{ textAlign: "center" }}>
-          Contact Email: <br /> potterjanthony@gmail.com
+          Contact Email: <br /> example@email.com
         </span>
       </Title>
     ),
   },
-  section: [
-    {
-      navId: "about",
-      icon: <VideoCameraOutlined style={{ paddingRight: "7px" }} />,
-      title: "Actor, Writer, Producer",
-      content:
-        "Anthony Jan Potter has been acting since he was 9. He began to take a professional approach in college. Got his Acting for the Stage associates degree from Brookdale Community College. He was hired for multiple short films and Shakespeare plays playing the character Macbeth in a production that played in New Jersey for a summer. He then got his Bachelor's degree in Acting and Writing for the Stage from Marymount Manhattan College. Afterwards he directed, wrote, acted in and produced a short film that won the Hollywood horror film festival. He moved to Los Angeles and began acting, booking a lead role in an independent feature that was put on Amazon Prime. He has also produced a short film “Elevate” that won the San jose film festival and was accepted into many film festivals all over the world. He recently worked on “Tonic” , a feature that is preparing to go to Sundance.",
-      img: { img: AboutImg, left: false },
-    },
-  ],
-  photos: {
-    title: "Photos",
-    photos: [
-      {
-        panelHeader: "Photo Shoot Arbor",
-        default: true,
-        photos: [
-          { img: Arbor0 },
-          { img: Arbor10 },
-          { img: Arbor3 },
-          { img: Arbor4 },
-          { img: Arbor5 },
-          { img: Arbor6 },
-          { img: Arbor7 },
-          { img: Arbor8 },
-          { img: Arbor9 },
-          { img: Arbor2 },
-          { img: Arbor1 },
-        ],
-      },
-      {
-        panelHeader: "Photo Shoot Alpha",
-        photos: [
-          { img: DefaultBatch0 },
-          { img: DefaultBatch1 },
-          { img: DefaultBatch2 },
-          { img: DefaultBatch3 },
-          { img: DefaultBatch4 },
-          { img: DefaultBatch6 },
-          { img: DefaultBatch7 },
-          { img: DefaultBatch8 },
-          // { img: DefaultBatch9 },
-          // { img: DefaultBatch10 },
-          { img: DefaultBatch11 },
-          { img: DefaultBatch12 },
-          { img: DefaultBatch13 },
-          { img: DefaultBatch14 },
-          { img: DefaultBatch15 },
-          { img: DefaultBatch16 },
-          // { img: DefaultBatch17 },
-          { img: DefaultBatch18 },
-          // { img: DefaultBatch19 },
-          { img: DefaultBatch20 },
-        ],
-      },
-      {
-        panelHeader: "Photo Shoot Omega",
-        photos: [
-          { img: SecondPanel0 },
-          { img: SecondPanel1 },
-          { img: SecondPanel2 },
-          { img: SecondPanel3 },
-          { img: SecondPanel4 },
-          { img: SecondPanel5 },
-          { img: SecondPanel6 },
-          { img: SecondPanel7 },
-          { img: SecondPanel8 },
-          { img: SecondPanel9 },
-          { img: SecondPanel10 },
-          { img: SecondPanel12 },
-          { img: SecondPanel13 },
-          { img: SecondPanel14 },
-          { img: SecondPanel15 },
-          // { img: SecondPanel16 },
-          { img: SecondPanel17 },
-          { img: SecondPanel18 },
-          { img: SecondPanel19 },
-          { img: SecondPanel20 },
-          { img: SecondPanel21 },
-          { img: SecondPanel22 },
-          { img: SecondPanel25 },
-          { img: SecondPanel26 },
-        ],
-      },
-      {
-        panelHeader: "Photo Shoot Neo",
-        photos: [
-          { img: Neo0 },
-          { img: Neo1 },
-          // { img: Neo2 },
-          // { img: Neo3 },
-          // { img: Neo4 },
-          // { img: Neo5 },
-          { img: Neo7 },
-          { img: Neo8 },
-          { img: Neo9 },
-          { img: Neo10 },
-          { img: Neo11 },
-          { img: Neo13 },
-          { img: Neo14 },
-          // { img: Neo15 },
-          // { img: Neo16 },
-          { img: Neo17 },
-          { img: Neo18 },
-          { img: Neo19 },
-          // { img: Neo20 },
-          { img: Neo21 },
-        ],
-      },
-      {
-        panelHeader: "Photo Shoot Blue",
-        photos: [
-          { img: Blue0 },
-          { img: Blue1 },
-          { img: Blue2 },
-          { img: Blue3 },
-        ],
-      },
-    ],
-  },
-  reels: {
-    title: "Reels",
-    reels: [
-      {
-        title: "Sergeant Danny Thomas from 'Left Behind",
-        link: "https://www.youtube.com/watch?v=3GeAa100ZX4",
-        description:
-          "Directed by Rolando Hernandez and produced in part by Anthony Jan Potter",
-      },
-      {
-        title: "Kirk from 'Venom Coast'",
-        link: "https://www.youtube.com/watch?v=QS1vf7bK__8",
-        description: "Directed by Michael Fredianelli",
-      },
-      {
-        title: "Captain Awesome from 'How to be a Superhero'",
-        link: "https://www.youtube.com/watch?v=aYucD-Lcvm4",
-        description: "Written and directed by Brendan Calton",
-      },
-      {
-        title: "Pryor Tulip from 'Golden State'",
-        link: "https://www.youtube.com/watch?v=NH6_wWrTlnQ",
-        description: "Written and directed by Marco Andreini",
-      },
-      {
-        title: `"The Man" from 'Silent Hellp'`,
-        link: "https://www.youtube.com/watch?v=I4PtsWSHFF4",
-        description:
-          "Written, directed, produced and starred by Anthony Jan Potter",
-      },
-    ],
-  },
+  section: [],
   contact: {
     img: {
       img: ContactImg,
@@ -363,6 +129,7 @@ const appConfig: config = {
     },
     title: "Contact",
     // message: "Fill out this form to get in touch!",
+    // changes here need to also be made in index.html for Netlify bots
     fields: [
       { label: "Name" },
       { label: "Email" },
@@ -372,24 +139,14 @@ const appConfig: config = {
     icon: <ContactsOutlined style={{ paddingRight: "7px" }} />,
   },
   footer: {
-    label: "Copyright © 2022 AJP ENTERPRISES",
+    label: "Copyright ©",
     color: {
       background: "#293477",
       text: "#fff",
     },
     items: [
       {
-        to: "https://instagram.com/anthony.jan.potter",
-        icon: (
-          <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faInstagram} />
-        ),
-      },
-      {
-        to: "https://www.imdb.com/name/nm6120771/",
-        icon: <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faImdb} />,
-      },
-      {
-        to: "https://www.youtube.com/user/Pimpdaddypottz",
+        to: "https://www.youtube.com",
         icon: <FontAwesomeIcon style={{ fontSize: "32px" }} icon={faYoutube} />,
       },
     ],
